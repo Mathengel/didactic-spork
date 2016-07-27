@@ -1,0 +1,56 @@
+<a href="/#/dashboard">Dashboard</a> | <a href="/#/login">Logout</a>
+
+<h1>Welcome, {{currentUser.name}}</h1>
+
+<h4>Search</h4>
+Topic: <input type="text" ng-model = "anything.topic">
+Username: <input type="text" ng-model = "anything.userName">
+<br>
+<br>
+<table>
+<thead>
+    <tr>
+        <th>Topic</th>
+        <th>Username</th>
+        <th>Category</th>
+        <th>Posts</th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat = "topic in topics | filter:anything:strict">
+        <td><a href="/#/topics/{{topic._id}}">{{topic.topic}}</a></td>
+        <td><a href="/#/user/{{topic._user}}">{{topic.name}}</a></td>
+        <td>{{topic.category}}</td>
+        <td>{{topic.posts.length}}</td>
+    </tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<h3>Add a new Topic!</h3>
+<br>
+<form ng-submit="create(newTopic, currentUser)">
+    <label>Topic:
+        <input type="text" ng-model="newTopic.topic">
+    </label>
+    <label>Description:
+        <input type="text" ng-model="newTopic.description">
+    </label>
+    <label>Category: 
+        <select ng-model="newTopic.category">
+            <option value="Well">Well</option>
+            <option value="How">How</option>
+            <option value="About">About</option>
+            <option value="This">This</option>
+            <option value="One">One?</option>
+        </select>
+    </label>
+    <input type="submit" value="add">
+</form>
+<br>
+<br>
+<br>
+<br>
+
+

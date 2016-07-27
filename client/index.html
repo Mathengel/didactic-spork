@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Discussion Board</title>
+    <script src ="angular/angular.js"></script>
+    <script src ="angular-route/angular-route.js"></script>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+
+    <script typ="text/javascript"src = "./js/app.js"></script>
+    <script typ="text/javascript"src = "./js/factories/userFctry.js"></script>
+    <script typ="text/javascript"src = "./js/controllers/userCtrl.js"></script>
+    <script typ="text/javascript"src = "./js/factories/topicFctry.js"></script>
+    <script typ="text/javascript"src = "./js/controllers/topicCtrl.js"></script>
+    <script typ="text/javascript"src = "./js/controllers/discussionCtrl.js"></script>
+
+
+    <style>
+        h1{
+            color: #3F1D0B;
+            font-weight: bold;
+            font-family: Arial;
+        }
+        #hey{
+            color: #EF5046;
+        }
+
+        .comment{
+            margin-left: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-view="">
+        
+    </div>
+</body>
+</html>

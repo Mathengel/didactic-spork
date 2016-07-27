@@ -1,0 +1,16 @@
+<h1>Hello World!</h1>
+<h3>Let's discuss...</h3>
+<br>
+<br>
+<br>
+<br>
+<h4>Please enter your name to join and share your ideas!</h4>
+<br>
+<br>
+<form ng-submit="checkUser(user)">
+    <div id="hey" ng-show=userCheck()>We are so excited to have you!!! </div>
+    <br>
+    Username: <input type="text" ng-model="user.name">
+    <input type="submit" value="join">
+</form>
+<hr>
