@@ -1,6 +1,6 @@
-app.factory('userFctry', ['$http', '$location', userFctry])
+app.factory('userFctry', ['$http', '$location', '$localStorage', userFctry])
 
-function userFctry($http, $location){
+function userFctry($http, $location, $localStorage){
     var factory = {};
     console.log("userFctry factory loaded!!!.. ")
     var thisUser = null;
@@ -14,11 +14,12 @@ function userFctry($http, $location){
         var newUser = true;
         // go get all existsing users, and see if any match the recently entered username. If one does, switch flag to false, set thisUser(which will be the persistent session like usermodel), and redirect to the dashboard.
         $http.get('/users').success(function(data){
+            console.log("checking all users,", data)
             angular.forEach(data, function(oldUser){
                 if(user.name == oldUser.name){
                     console.log(user.name, "matches", oldUser.name);
                     newUser = false;
-                    thisUser = oldUser
+                    $localStorage.thisUser = oldUser
                     $location.path('/dashboard')
                 }
             })
@@ -27,21 +28,26 @@ function userFctry($http, $location){
                 console.log("This user is new, creating a spot in the database for them.", user)
                 $http.post('/users', user).success(function(data){
                     console.log("new user created")
-                    thisUser = data;
+                    $localStorage.thisUser = data;
                     $location.path('/dashboard')
                 })
             }
         })
-        callback(thisUser);
+        callback($localStorage.thisUser);
     }
 
     factory.getCurrentUser = function(callback){
-        if(thisUser){
-            callback(thisUser);
+        if($localStorage.hasOwnProperty('thisUser')){
+            callback($localStorage.thisUser);
         }
         else{
-            callback(message);
+            $location.path('/');
         }
+    }
+
+    factory.logout = function(callback){
+        delete $localStorage.thisUser;
+        location.reload()
     }
 
     return factory;

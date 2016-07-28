@@ -1,4 +1,4 @@
-var app = angular.module("App", ['ngRoute'])
+var app = angular.module("App", ['ngRoute', 'ngStorage'])
 app.config(function($routeProvider){
     $routeProvider
         .when('/',{
@@ -7,12 +7,12 @@ app.config(function($routeProvider){
         })
         .when('/dashboard', {
             templateUrl: 'partials/dashboard.html',
-            controller: 'topicCtrl'
+            controller: 'questionCtrl'
         })
-        .when('/topics/:id', {
-            templateUrl: 'partials/topics.html',
-            controller: 'discussionCtrl'
-        })
+        // .when('/topics/:id', {
+        //     templateUrl: 'partials/topics.html',
+        //     controller: 'discussionCtrl'
+        // })
         .when('/user/:id', {
             templateUrl: 'partials/user.html',
             controller: 'userCtrl'

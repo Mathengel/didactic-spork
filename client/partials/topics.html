@@ -1,16 +1,16 @@
-<a href="/#/dashboard">Dashboard</a> | <a href="/#/login">Logout</a>
+<!-- <a href="/#/dashboard">Dashboard</a> | <a href="/#/login">Logout</a>
 
 <p>Your name is {{currentUser.name}}</p>
 
 
 
-<h3><strong><a href="/#/user/{{topic._user}}">{{topic.name}}</a></strong> posted a topic: </h3>
-<strong><p>{{topic.topic}}</p></strong>
-<strong>Description:</strong><p>{{topic.description}}</p>
+<h3><strong><a href="/#/user/{{question._user}}">{{question.name}}</a></strong> posted a question: </h3>
+<strong><p>{{question.question}}</p></strong>
+<strong>Description:</strong><p>{{question.description}}</p>
 
 <h4>Post your answer here...</h4>
 
-<form ng-submit="createPost(newPost, topic, currentUser)">
+<form ng-submit="createPost(newPost, question, currentUser)">
     <textarea rows="3" ng-model="newPost.content"></textarea>
     <input type="submit" class="btn btn-primary">
 </form>
@@ -18,16 +18,17 @@
 <hr>
 
 <div class="comment">
-  <strong>{{topic.answer.user}}</strong>
-{{topic.answer.upvote}}<button class="btn btn-success">upVote</button>{{topic.answer.downvote}}<button class="btn btn-danger">downVote</button>  
+  <strong>{{question.answer.user}}</strong>
+{{question.answer.upvote}}<button class="btn btn-success">upVote</button>{{question.answer.downvote}}<button class="btn btn-danger">downVote</button>  
 </div> 
 
 
-<strong class="comment">{{topic.answer.comment.user}}</strong>{{topic.answer.comment.content}}
+<strong class="comment">{{question.answer.comment.user}}</strong>{{question.answer.comment.content}}
 
-<strong class="comment">{{topic.answer.comment.user}}</strong>{{topic.answer.comment.content}}
+<strong class="comment">{{question.answer.comment.user}}</strong>{{question.answer.comment.content}}
 
 <form class="comment">
     <textarea rows="3"></textarea>
     <input type="submit" value="comment" class="btn btn-primary">
 </form>
+ -->
