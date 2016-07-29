@@ -5,17 +5,21 @@ app.config(function($routeProvider){
             templateUrl: 'partials/login.html',
             controller: 'userCtrl'
         })
-        .when('/dashboard', {
-            templateUrl: 'partials/dashboard.html',
+        .when('/home', {
+            templateUrl: 'partials/home.html',
             controller: 'questionCtrl'
         })
-        // .when('/topics/:id', {
-        //     templateUrl: 'partials/topics.html',
-        //     controller: 'discussionCtrl'
-        // })
-        .when('/user/:id', {
-            templateUrl: 'partials/user.html',
-            controller: 'userCtrl'
+        .when('/new_question/', {
+            templateUrl: 'partials/new_question.html',
+            controller: 'questionCtrl'
+        })
+        .when('/question/:id', {
+            templateUrl: 'partials/question.html',
+            controller: 'answerCtrl'
+        })
+        .when('/question/:id/new_answer', {
+            templateUrl: 'partials/new_answer.html',
+            controller: 'answerCtrl'
         })
         .otherwise({
             redirectTo: '/'
